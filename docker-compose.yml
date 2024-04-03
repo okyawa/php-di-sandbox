@@ -12,8 +12,8 @@ services:
       # <ホストマシンのポート>:<コンテナのポート>
       - 8000:80
     volumes:
-      # ./srcフォルダをコンテナ内の/var/www/htmlにマウント
-      - ./src:/var/www/html
+      # ./をコンテナ内の/var/www/htmlにマウント
+      - ./:/var/www/html
       # ./docker/nginxフォルダをコンテナ内の/etc/nginx/conf.dにマウント
       - ./docker/nginx:/etc/nginx/conf.d
     # 依存関係を設定 (※niginxコンテナが起動する前にappコンテナが起動するようにする)
@@ -27,6 +27,6 @@ services:
       # Dockerfileのファイル名
       dockerfile: Dockerfile
     volumes:
-      # ./srcフォルダをコンテナ内の/var/www/htmlにマウント
-      - ./src:/var/www/html
+      # ./をコンテナ内の/var/www/htmlにマウント
+      - ./:/var/www/html
   # mysql:

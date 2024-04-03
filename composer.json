@@ -2,7 +2,7 @@
     "name": "okyawa/php-di-sandbox",
     "autoload": {
         "psr-4": {
-            "Okyawa\\PhpDiSandbox\\": "src/"
+            "PhpDiSandbox\\": "src/"
         }
     },
     "require": {

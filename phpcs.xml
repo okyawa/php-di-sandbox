@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<ruleset name="PSR12">
+    <description>PSR12 compliant rules</description>
+
+    <arg name="extensions" value="php"/>
+
+    <!-- 適用コーディング規約の指定 -->
+    <rule ref="PSR12"/>
+
+    <!-- strict_typesが宣言されていることを確認 -->
+    <rule ref="Generic.PHP.RequireStrictTypes"/>
+
+    <!-- 出力に色を適用 -->
+    <arg name="colors"/>
+
+    <!-- オプション p:進捗表示  s:エラー表示時にルールを表示 -->
+    <arg value="ps"/>
+        <!-- チェック対象ディレクトリ -->
+    <file>./src/</file>
+
+    <!-- 除外ディレクトリ -->
+    <exclude-pattern>/vendor/</exclude-pattern>
+</ruleset>

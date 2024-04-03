@@ -1,3 +1,25 @@
+# パス指定の初期値
+path=
+
+
+# PHP関連コマンド
+
+# PHPStan でショップ側のapp以下の静的コード解析を実行
+phpstan:
+	./vendor/bin/phpstan analyse ${path}
+.PHONY: phpstan-app-shop
+
+# PHP Code Sniffer のシンタックスチェックを実行
+phpcs:
+	./vendor/bin/phpcs --standard=phpcs.xml ${path}
+.PHONY: phpcs
+
+# PHP Code Beautifier and Fixer で PHP Code Sniffer のエラーを可能な限り自動修正
+phpcbf:
+	./vendor/bin/phpcbf --standard=phpcs.xml ${path}
+.PHONY: phpcbf
+
+
 # Docker用コマンド
 
 # docker-composeの起動

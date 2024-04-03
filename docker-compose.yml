@@ -1,0 +1,32 @@
+# 特定のバージョンを指定し、このファイル内で使用できる文法が固定
+version: '3'
+
+# 起動したいコンテナを定義。本記事では3つのコンテナ（nginx、app、mysql）を定義
+services:
+  # Nginxの定義
+  nginx:
+    # Nginxコンテナに使用するイメージを指定
+    image: nginx:1.25.4
+    # ホストマシンのポートをコンテナのポートにマッピング
+    ports:
+      # <ホストマシンのポート>:<コンテナのポート>
+      - 8000:80
+    volumes:
+      # ./srcフォルダをコンテナ内の/var/www/htmlにマウント
+      - ./src:/var/www/html
+      # ./docker/nginxフォルダをコンテナ内の/etc/nginx/conf.dにマウント
+      - ./docker/nginx:/etc/nginx/conf.d
+    # 依存関係を設定 (※niginxコンテナが起動する前にappコンテナが起動するようにする)
+    depends_on:
+      - app
+  # PHP-FPMの定義
+  app:
+    build:
+      # Dockerfileを格納するフォルダのパス
+      context: ./docker/php
+      # Dockerfileのファイル名
+      dockerfile: Dockerfile
+    volumes:
+      # ./srcフォルダをコンテナ内の/var/www/htmlにマウント
+      - ./src:/var/www/html
+  # mysql:

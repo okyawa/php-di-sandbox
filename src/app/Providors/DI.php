@@ -20,6 +20,9 @@ final class DI
             // PHP-DIの初期化と設定
             $builder = new ContainerBuilder();
 
+            // Attributesを使ったDIを有効にする
+            $builder->useAttributes(true);
+
             // ここにDIの定義配列ファイルを追加
             $builder->addDefinitions(dirname(__FILE__) . '/DefaultProvider.php');
 

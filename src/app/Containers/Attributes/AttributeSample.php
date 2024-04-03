@@ -8,12 +8,17 @@ use DI\Attribute\Inject;
 
 final class AttributeSample
 {
-    public function __construct()
-    {
-    }
+    #[Inject]
+    private SomeServiceInterface $someService;
+
+    // #[Inject([SomeServiceInterface::class])]
+    // public function __construct(private SomeServiceInterface $someService)
+    // {
+    // }
 
     public function index(): void
     {
-        echo 'Hello, PHP-DI Attributes!';
+        $this->someService->echo();
+        // echo 'Hello, PHP-DI Attributes!';
     }
 }

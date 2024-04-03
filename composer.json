@@ -1,0 +1,11 @@
+{
+    "name": "okyawa/php-di-sandbox",
+    "autoload": {
+        "psr-4": {
+            "Okyawa\\PhpDiSandbox\\": "src/"
+        }
+    },
+    "require": {
+        "php-di/php-di": "^7.0"
+    }
+}
